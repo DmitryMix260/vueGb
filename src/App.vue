@@ -1,16 +1,76 @@
 <template>
   <div id="app">
-    <calcComponents />
+    <header>
+      <div> My personal costs</div>
+    </header>
+    <main>
+      <payForm @addPayment="addNewPayments"/>
+      <paymentsDistlay :items="paymentsList" />
+    </main>
   </div>
 </template>
 
 <script>
-import calcComponents from './components/calcComponents.vue'
+import payForm from './components/payForm.vue'
+import paymentsDistlay from './components/paymentsDisplay.vue'
 
 export default {
   name: 'App',
+  data () {
+    return {
+      paymentsList: []
+    }
+  },
+  methods: {
+    fechData () {
+      return [
+        {
+          date: '28.03.2020',
+          category: 'Food',
+          value: 169
+        },
+        {
+          date: '25.03.2020',
+          category: 'Нога',
+          value: 360
+        },
+        {
+          date: '24.03.2020',
+          category: 'Рука',
+          value: 360
+        },
+        {
+          date: '24.03.2020',
+          category: 'Голова',
+          value: 360
+        },
+        {
+          date: '24.03.2020',
+          category: 'Зубы',
+          value: 360
+        },
+        {
+          date: '24.03.2020',
+          category: 'Пальцы',
+          value: 360
+        },
+        {
+          date: '24.03.2020',
+          category: 'Food',
+          value: 532
+        }
+      ]
+    },
+    addNewPayments (data) {
+      this.paymentsList.push(data)
+    }
+  },
   components: {
-    calcComponents
+    payForm,
+    paymentsDistlay
+  },
+  created () {
+    this.paymentsList = this.fechData()
   }
 }
 </script>
@@ -23,5 +83,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  margin-bottom: 60px;
 }
 </style>
