@@ -9,9 +9,6 @@
                 :settings="settings"/>
             </div>
         </div>
-        <div class="footer">
-            <button @click="close"> Close </button>
-        </div>
     </div>
 </template>
 
