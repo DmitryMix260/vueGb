@@ -34,7 +34,7 @@
 
 export default {
   name: 'calcComponents',
-  data() {
+  data () {
     return {
       op1: 0,
       op2: 0,
@@ -45,28 +45,28 @@ export default {
     }
   },
   methods: {
-    sum() {
+    sum () {
       this.result = this.op1 + this.op2
     },
-    sub() {
+    sub () {
       this.result = this.op1 - this.op2
     },
-    mult() {
+    mult () {
       this.result = this.op1 * this.op2
     },
-    div() {
+    div () {
       this.result = this.op1 / this.op2
     },
-    pow() {
+    pow () {
       this.result = Math.pow(this.op1, this.op2)
     },
-    trunc() {
+    trunc () {
       this.result = Math.trunc(this.op1 / this.op2)
     },
-    addToInput(number) {
+    addToInput (number) {
       this[this.picked] = this[this.picked] * 10 + number
     },
-    delFromInput() {
+    delFromInput () {
       this[this.picked] = Math.trunc(this[this.picked] / 10)
     }
   }
