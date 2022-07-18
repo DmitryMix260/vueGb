@@ -8,6 +8,23 @@
     "test": "jest",
     "lint": "vue-cli-service lint"
   },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.js$": "babel-jest"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,vue}",
+      "!**/node_modules/**",
+      "!coverage/**"
+    ]
+  },
   "dependencies": {
     "core-js": "^3.8.3",
     "vue": "^2.6.14"

@@ -1,31 +1,51 @@
 <template>
   <div class="calc" id="calc">
     <div class="main">
-      <input type="number" v-model.number="op1">
-      <input type="number" v-model.number="op2">
+      <input type="number" v-model.number="op1" name="op1">
+      <input type="number" v-model.number="op2" name="op2">
       = {{ result }}
     </div>
     <div>
-      <button @click="sum">+</button>
-      <button @click="sub">-</button>
-      <button @click="mult">*</button>
-      <button @click="div">/</button>
-      <button @click="pow">^n</button>
-      <button @click="trunc">trunc</button>
+      <button @click="sum" name="sum">+</button>
+      <button @click="sub" name="sub">-</button>
+      <button @click="mult" name="mult">*</button>
+      <button @click="div" name="div">/</button>
+      <button @click="pow" name="pow">^n</button>
+      <button @click="trunc" name="trunc">trunc</button>
     </div>
     <div>
       <label for="checkbox">
-        <input type="checkbox" id="checkbox" v-model="checked"> Отобразить экранную клавиатуру
+        <input
+        type="checkbox"
+        id="checkbox"
+        v-model="checked"
+        name="checkbox"> Отобразить экранную клавиатуру
       </label>
     </div>
     <div class="buttonNumber" v-show="checked">
-      <div><input type="radio" id="op1" value="op1" v-model="picked">
+      <div>
+        <input
+        type="radio"
+        id="op1"
+        value="op1"
+        v-model="picked"
+        name='op1Radio'>
         <label for="op1">Первый операнд</label>
-        <input type="radio" id="op2" value="op2" v-model="picked">
+        <input
+        type="radio"
+        id="op2"
+        value="op2"
+        v-model="picked"
+        name='op2Radio'>
         <label for="op2">Второй операнд</label>
       </div>
-      <button v-for="number in numbers" :key="number" @click="addToInput(number)"> {{ number }}</button>
-      <button @click="delFromInput">Del</button>
+      <button
+      v-for="number in numbers"
+      :key="number"
+      :name="number"
+      @click="addToInput(number)">
+      {{ number }}</button>
+      <button @click="delFromInput" name="delButton">Del</button>
     </div>
   </div>
 </template>
